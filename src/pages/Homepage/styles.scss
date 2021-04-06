@@ -1,0 +1,9 @@
+.homepage {
+  height: calc(100% - 6.5rem - 5.8rem);
+}
+
+@media (max-width: 900px) {
+  .homepage {
+    height: calc(100% - 10.5rem - 5.8rem);
+  }
+}

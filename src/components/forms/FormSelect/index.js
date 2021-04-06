@@ -1,0 +1,39 @@
+import React, { useState, useEffect } from "react";
+import { firestore } from "./../../../firebase/utils";
+import Modal from "./../../Modal";
+
+import "./styles.scss";
+
+const FormSelect = ({
+  options,
+  defaultValue,
+  handleChange,
+  label,
+  ...otherProps
+}) => {
+  if (!Array.isArray(options) || options.length < 1) return null;
+
+  return (
+    <div className="formRow">
+      {label && <label>{label}</label>}
+      <select
+        value={defaultValue}
+        onChange={handleChange}
+        className="formSelect"
+        {...otherProps}
+      >
+        {options.map((options, index) => {
+          const { value, name } = options;
+
+          return (
+            <option key={index} value={value}>
+              {name}
+            </option>
+          );
+        })}
+      </select>
+    </div>
+  );
+};
+
+export default FormSelect;
